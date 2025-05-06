@@ -11,7 +11,7 @@ import batch from './batched-dispatcher'
 import standard from './fetch-dispatcher'
 import { normalize } from './normalize'
 import { scheduleFlush } from './schedule-flush'
-import { SEGMENT_API_HOST } from '../../core/constants'
+import { SEGMENT_API_HOST, NAYLA_API_HOST } from '../../core/constants'
 import { DeliveryStrategy } from './shared-dispatcher'
 
 export type SegmentioSettings = {
@@ -78,7 +78,7 @@ export function segmentio(
   const inflightEvents = new Set<Context>()
   const flushing = false
 
-  const apiHost = settings?.apiHost ?? SEGMENT_API_HOST
+  const apiHost = settings?.apiHost ?? NAYLA_API_HOST
   const protocol = settings?.protocol ?? 'https'
   const remote = `${protocol}://${apiHost}`
 
